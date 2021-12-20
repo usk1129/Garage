@@ -12,7 +12,7 @@ namespace Garage
         public string Color { get; set; }
         public int NumOfWheels { get; set; }
 
-        public Vehicle(int registernumber,string color, int numofwheels)
+        public Vehicle(int registernumber, string color, int numofwheels)
         {
             RegisterNumber = registernumber;
             Color = color;
@@ -24,14 +24,14 @@ namespace Garage
         }
     }
 
-    public class AirPlane: Vehicle
+    public class AirPlane : Vehicle
     {
         public int NumberOfEngines { get; set; }
-        public AirPlane(int registernumber, string color, int numofwheels,int numberofengines) : base(registernumber, color, numofwheels)
+        public AirPlane(int registernumber, string color, int numofwheels, int numberofengines) : base(registernumber, color, numofwheels)
         {
-           NumberOfEngines = numberofengines;
+            NumberOfEngines = numberofengines;
         }
-            
+
     }
 
     public class Motorcycle : Vehicle
