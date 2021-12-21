@@ -32,6 +32,12 @@ namespace Garage
             NumberOfEngines = numberofengines;
         }
 
+
+        public override string Stats()
+        {
+            return base.Stats() + $"It has NumberOfEngines: ${NumberOfEngines}";
+        }
+
     }
 
     public class Motorcycle : Vehicle
@@ -40,6 +46,12 @@ namespace Garage
         public Motorcycle(int registernumber, string color, int numofwheels, int cylinderVolume) : base(registernumber, color, numofwheels)
         {
             CylinderVolume = cylinderVolume;
+        }
+
+
+        public override string Stats()
+        {
+            return base.Stats() + $"It has CylinderVolume: ${CylinderVolume}";
         }
 
     }
@@ -51,6 +63,12 @@ namespace Garage
             FuelType = fueltype;
         }
 
+
+        public override string Stats()
+        {
+            return base.Stats() + $"It has FuelType: ${FuelType}";
+        }
+
     }
     public class Bus : Vehicle
     {
@@ -58,6 +76,12 @@ namespace Garage
         public Bus(int registernumber, string color, int numofwheels, int numberofseats) : base(registernumber, color, numofwheels)
         {
             NumberOfSeats = numberofseats;
+        }
+
+
+        public override string Stats()
+        {
+            return base.Stats() + $"It has : ${NumberOfSeats} number of seats.";
         }
 
     }
@@ -68,6 +92,12 @@ namespace Garage
         {
             Length = length;
         }
+
+        public override string Stats()
+        {
+            return base.Stats() + $"It has ${Length} length.";
+        }
+
 
     }
 
