@@ -7,28 +7,24 @@ using System.Threading.Tasks;
 
 namespace Garage
 {
-    public class Garage<T> where T : Vehicle, IEnumerable
+    //Vehicle, IEnumerable, new ()
+    public class Garage<T>
     {
-        protected T[] Vehicles;
-        private int capacity;
+        private T[] Vehicles;
+        public int capacity;
 
         public Garage( int capacity)
         {
-            this.capacity = Math.Max(capacity, 1);
             Vehicles = new T[capacity];
 
         }
 
-        public T getVehiclebyIndex(int index)
-        {
-            return Vehicles[index];
-        }
 
-        public IEnumerator GetVehicles()
+        public IEnumerator<T> GetVehicles()
         {
-            foreach(var v in Vehicles)
+            foreach (var item in Vehicles)
             {
-                yield return v;
+                yield return (T)(IEnumerator<T>)item;
             }
         }
 
