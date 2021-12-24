@@ -10,12 +10,12 @@ namespace Garage
     //Vehicle, IEnumerable, new ()
     public class Garage<T>
     {
-        private T[] Vehicles;
+        private Vehicle[] Vehicles;
         public int capacity;
 
         public Garage( int capacity)
         {
-            Vehicles = new T[capacity];
+            Vehicles = new Vehicle[capacity];
 
         }
 
