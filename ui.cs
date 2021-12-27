@@ -8,7 +8,7 @@ namespace Garage
 {
     public class ui
     {
-        public static void PrintUserChoices()
+        public void PrintUserChoices()
         {
 
             Console.WriteLine("--------------------------------");
@@ -23,38 +23,8 @@ namespace Garage
             Console.WriteLine("Press 0: Exit the garage\n");
             Console.WriteLine("Enter your choice:");
         }
-        public static void UserInput()
-        {
-            var input = Console.ReadLine();
+        
 
-            switch (input)
-            {
-                case "1":
-                    //ParkCar();
-                    break;
-                case "2":
-                    //ExitCar();
-                    break;
-                case "3":
-                    //ViewCars();
-                    break;
-                case "4":
-                    //PrintUndefined();
-                    break;
-                case "0":
-                    ShutDown();
-                    break;
-                default:
-                    Console.WriteLine("Wrong input");
-                    break;
-            }
-        }
-
-        private static void ShutDown()
-        {
-            Console.WriteLine("Garage is shutting down! Bye bye!");
-            Environment.Exit(0);
-        }
 
     }
 }
