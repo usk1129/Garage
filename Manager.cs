@@ -38,7 +38,19 @@ namespace Garage
                     CreateGarage();
                     break;
                 case "2":
-                    ParkVehicle();
+                    if (handler.IsFull())
+                    {
+                        Console.WriteLine("The garage is full");
+                        break;
+                    }
+                    try
+                    {
+                        ParkVehicle();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
                     break;
                 case "3":
                     handler.PrintVehicles();
@@ -75,13 +87,16 @@ namespace Garage
             var ExtProperty = Console.ReadLine();
             Car car_vehicle = new(RegNumber,Color,Int32.Parse(NumOFWheels),ExtProperty);
             handler.ParkVehicle(car_vehicle);
+            Console.WriteLine("The vehicle has now been parked in the garage");
+
         }
 
         private void CreateGarage()
         {
             Console.WriteLine("Enter the size of garage: ");
-            var input = Console.ReadLine();
-            handler.Run(Int32.Parse(input));
+            var input_Capacity = Console.ReadLine();
+            handler.Run(Int32.Parse(input_Capacity));
+            Console.WriteLine($"Your garage has been created with {input_Capacity} slots");
         }
 
         private void ShutDown()

@@ -14,6 +14,7 @@ namespace Garage
         private T[] Vehicles;
         public int capacity;
 
+
         public Garage(int capacity)
         {
             Vehicles = new T[capacity];
@@ -75,6 +76,20 @@ namespace Garage
         IEnumerator IEnumerable.GetEnumerator()
         {
             return Vehicles.GetEnumerator();
+        }
+
+        internal bool MaxCapacity()
+        {
+            bool reachedCap = true;
+            for (int i = 0; i < Vehicles!.Length; i++)
+            {
+                if (Vehicles[i] == null)
+                {
+                    reachedCap = false;
+
+                }
+            }
+            return reachedCap;
         }
     }
 
