@@ -25,7 +25,19 @@ namespace Garage
 
         }
 
+        internal void Initiliaze()
+        {
+            Console.WriteLine("How big do you want you're garage?");
+        }
 
-
+        internal void VehicleType()
+        {
+            Console.WriteLine("Enter you're type of vehicle");
+            Console.WriteLine("Enter 1 for Car: ");
+            Console.WriteLine("Enter 2 for Airplane: ");
+            Console.WriteLine("Enter 3 for MotorCycle: ");
+            Console.WriteLine("Enter 4 for Bus: ");
+            Console.WriteLine("Enter 5 for Boat: ");
+        }
     }
 }

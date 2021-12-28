@@ -21,7 +21,8 @@ namespace Garage
         public void Start()
         {
             int userchoice;
-
+            ui.Initiliaze();
+            CreateGarage();
             while (true)
             {
                 ui.PrintUserChoices();
@@ -76,7 +77,95 @@ namespace Garage
 
         private void ParkVehicle()
         {
-            Console.WriteLine("Enter you're vehicle in order: ");
+            Console.WriteLine("What kind of vehicle do you have?");
+            ui.VehicleType();
+            var VehicleInput = Console.ReadLine();
+            switch (VehicleInput)
+            {
+                case "1":
+                    CarPark();
+                    break;
+                case "2":
+                    AirPlane();
+                    break;
+                case "3":
+                    Motorcycle();
+                    break;
+                case "4":
+                    Bus();
+                    break;
+                case "5":
+                    Boat();
+                    break;
+                default:
+                    break;
+                    
+
+            }
+        }
+
+        private void Boat()
+        {
+            Console.WriteLine("Enter the register number: ");
+            var RegNumber = Console.ReadLine();
+            Console.WriteLine("What is the color?");
+            var Color = Console.ReadLine();
+            Console.WriteLine("Enter the Number of Wheels: ");
+            var NumOFWheels = Console.ReadLine();
+            Console.WriteLine("Enter the  Length");
+            var ExtProperty = Console.ReadLine();
+            Boat car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
+            handler.ParkVehicle(car_vehicle);
+            Console.WriteLine("The vehicle has now been parked in the garage");
+        }
+
+        private void Bus()
+        {
+            Console.WriteLine("Enter the register number: ");
+            var RegNumber = Console.ReadLine();
+            Console.WriteLine("What is the color?");
+            var Color = Console.ReadLine();
+            Console.WriteLine("Enter the Number of Wheels: ");
+            var NumOFWheels = Console.ReadLine();
+            Console.WriteLine("Enter the number of seats");
+            var ExtProperty = Console.ReadLine();
+            Bus car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
+            handler.ParkVehicle(car_vehicle);
+            Console.WriteLine("The vehicle has now been parked in the garage");
+        }
+
+        private void Motorcycle()
+        {
+            Console.WriteLine("Enter the register number: ");
+            var RegNumber = Console.ReadLine();
+            Console.WriteLine("What is the color?");
+            var Color = Console.ReadLine();
+            Console.WriteLine("Enter the Number of Wheels: ");
+            var NumOFWheels = Console.ReadLine();
+            Console.WriteLine("Enter the CylinderVolume");
+            var ExtProperty = Console.ReadLine();
+            Motorcycle car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
+            handler.ParkVehicle(car_vehicle);
+            Console.WriteLine("The vehicle has now been parked in the garage");
+        }
+
+        private void AirPlane()
+        {
+            Console.WriteLine("Enter the register number: ");
+            var RegNumber = Console.ReadLine();
+            Console.WriteLine("What is the color?");
+            var Color = Console.ReadLine();
+            Console.WriteLine("Enter the Number of Wheels: ");
+            var NumOFWheels = Console.ReadLine();
+            Console.WriteLine("Enter the NumberOfEngines: ");
+            var ExtProperty = Console.ReadLine();
+            AirPlane car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
+            handler.ParkVehicle(car_vehicle);
+            Console.WriteLine("The vehicle has now been parked in the garage");
+        }
+
+        private void CarPark()
+        {
             Console.WriteLine("Enter the register number: ");
             var RegNumber = Console.ReadLine();
             Console.WriteLine("What is the color?");
@@ -85,10 +174,9 @@ namespace Garage
             var NumOFWheels = Console.ReadLine();
             Console.WriteLine("Enter the fueltype");
             var ExtProperty = Console.ReadLine();
-            Car car_vehicle = new(RegNumber,Color,Int32.Parse(NumOFWheels),ExtProperty);
+            Car car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), ExtProperty);
             handler.ParkVehicle(car_vehicle);
             Console.WriteLine("The vehicle has now been parked in the garage");
-
         }
 
         private void CreateGarage()
