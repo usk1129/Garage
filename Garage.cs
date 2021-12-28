@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace Garage
 {
     //Vehicle, IEnumerable, new ()
-    public class Garage<T> : IEnumerable<T>
+
+    public class Garage<T>: IEnumerable<T>   where T : Vehicle
     {
         private T[] Vehicles;
         public int capacity;
@@ -18,43 +19,65 @@ namespace Garage
             Vehicles = new T[capacity];
         }
 
-
-        public IEnumerator<T> GetVehicles()
+        public void PrintVehicles()
         {
-            foreach (var item in Vehicles)
+            foreach (var v in Vehicles)
             {
-                yield return (T)(IEnumerator<T>)item;
+                Console.WriteLine(v.Stats());
             }
         }
 
+        public bool RemoveVehicle(String RegNo)
+        {
+            bool RemovedFromSlot = false;
+     
+            for(int i = 0; i < Vehicles.Length; i++)
+            {
+                if (Vehicles[i].RegisterNumber == RegNo)
+                {
+                    Vehicles[i] = null;
+                    RemovedFromSlot = true;
+                    break;
+                }
+            }
 
+            return RemovedFromSlot;
+        }
 
         public bool AddVehicle(T item)
+        
         {
+            bool addedToSlot = false;
+            for (int i = 0; i < Vehicles.Length; i++)
             {
-                bool addedToSlot = false;
-                for (int i = 0; i < Vehicles.Length; i++)
+                if (Vehicles[i] == null)
                 {
-                    if (Vehicles[i] == null)
-                    {
-                        Vehicles[i] = item;
-                        addedToSlot = true;
-                        break;
-                    }
+                    Vehicles[i] = item;
+                    addedToSlot = true;
+                    break;
                 }
-                return addedToSlot;
-
             }
+            return addedToSlot;
+
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < Vehicles.Length; i++)
+            {
+                if (Vehicles[i] != null)
+                {
+                    yield return Vehicles[i];
+                }
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return Vehicles.GetEnumerator();
         }
     }
+
+
 }
+

@@ -35,17 +35,16 @@ namespace Garage
             switch (input)
             {
                 case "1":
-                    var input2 = Console.ReadLine();
-                    handler.Run(Int32.Parse(input2));
+                    CreateGarage();
                     break;
                 case "2":
-                    //GarageHandler.ParkVehicle(VehicleChoice());
+                    ParkVehicle();
                     break;
                 case "3":
-                    //ViewCars();
+                    handler.PrintVehicles();
                     break;
                 case "4":
-                    //PrintUndefined();
+                //    UnParkVehicle();
                     break;
                 case "0":
                     ShutDown();
@@ -55,6 +54,31 @@ namespace Garage
                     break;
             }
         }
+
+ 
+
+        private void ParkVehicle()
+        {
+            Console.WriteLine("Enter you're vehicle in order: ");
+            Console.WriteLine("Enter the register number: ");
+            var RegNumber = Console.ReadLine();
+            Console.WriteLine("What is the color?");
+            var Color = Console.ReadLine();
+            Console.WriteLine("Enter the Number of Wheels: ");
+            var NumOFWheels = Console.ReadLine();
+            Console.WriteLine("Enter the fueltype");
+            var ExtProperty = Console.ReadLine();
+            Car car_vehicle = new(RegNumber,Color,Int32.Parse(NumOFWheels),ExtProperty);
+            handler.ParkVehicle(car_vehicle);
+        }
+
+        private void CreateGarage()
+        {
+            Console.WriteLine("Enter the size of garage: ");
+            var input = Console.ReadLine();
+            handler.Run(Int32.Parse(input));
+        }
+
         private void ShutDown()
         {
             Console.WriteLine("Garage is shutting down! Bye bye!");

@@ -8,11 +8,11 @@ namespace Garage
 {
     public abstract class Vehicle
     {
-        public int RegisterNumber { get; set; }
+        public string RegisterNumber { get; set; }
         public string Color { get; set; }
         public int NumOfWheels { get; set; }
 
-        public Vehicle(int registernumber, string color, int numofwheels)
+        public Vehicle(string registernumber, string color, int numofwheels)
         {
             RegisterNumber = registernumber;
             Color = color;
@@ -27,7 +27,7 @@ namespace Garage
     public class AirPlane : Vehicle
     {
         public int NumberOfEngines { get; set; }
-        public AirPlane(int registernumber, string color, int numofwheels, int numberofengines) : base(registernumber, color, numofwheels)
+        public AirPlane(string registernumber, string color, int numofwheels, int numberofengines) : base(registernumber, color, numofwheels)
         {
             NumberOfEngines = numberofengines;
         }
@@ -35,7 +35,7 @@ namespace Garage
 
         public override string Stats()
         {
-            return base.Stats() + $"It has NumberOfEngines: ${NumberOfEngines}";
+            return base.Stats() + $"It has NumberOfEngines: {NumberOfEngines}";
         }
 
     }
@@ -43,7 +43,7 @@ namespace Garage
     public class Motorcycle : Vehicle
     {
         public int CylinderVolume { get; set; }
-        public Motorcycle(int registernumber, string color, int numofwheels, int cylinderVolume) : base(registernumber, color, numofwheels)
+        public Motorcycle(string registernumber, string color, int numofwheels, int cylinderVolume) : base(registernumber, color, numofwheels)
         {
             CylinderVolume = cylinderVolume;
         }
@@ -51,14 +51,14 @@ namespace Garage
 
         public override string Stats()
         {
-            return base.Stats() + $"It has CylinderVolume: ${CylinderVolume}";
+            return base.Stats() + $"It has CylinderVolume: {CylinderVolume}";
         }
 
     }
     public class Car : Vehicle
     {
         public string FuelType { get; set; }
-        public Car(int registernumber, string color, int numofwheels, string fueltype) : base(registernumber, color, numofwheels)
+        public Car(string registernumber, string color, int numofwheels, string fueltype) : base(registernumber, color, numofwheels)
         {
             FuelType = fueltype;
         }
@@ -66,14 +66,14 @@ namespace Garage
 
         public override string Stats()
         {
-            return base.Stats() + $"It has FuelType: ${FuelType}";
+            return base.Stats() + $"It has FuelType: {FuelType}";
         }
 
     }
     public class Bus : Vehicle
     {
         public int NumberOfSeats { get; set; }
-        public Bus(int registernumber, string color, int numofwheels, int numberofseats) : base(registernumber, color, numofwheels)
+        public Bus(string registernumber, string color, int numofwheels, int numberofseats) : base(registernumber, color, numofwheels)
         {
             NumberOfSeats = numberofseats;
         }
@@ -81,21 +81,21 @@ namespace Garage
 
         public override string Stats()
         {
-            return base.Stats() + $"It has : ${NumberOfSeats} number of seats.";
+            return base.Stats() + $"It has : {NumberOfSeats} number of seats.";
         }
 
     }
     public class Boat : Vehicle
     {
         public int Length { get; set; }
-        public Boat(int registernumber, string color, int numofwheels, int length) : base(registernumber, color, numofwheels)
+        public Boat(string registernumber, string color, int numofwheels, int length) : base(registernumber, color, numofwheels)
         {
             Length = length;
         }
 
         public override string Stats()
         {
-            return base.Stats() + $"It has ${Length} length.";
+            return base.Stats() + $"It has {Length} length.";
         }
 
 
