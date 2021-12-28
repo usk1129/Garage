@@ -73,6 +73,7 @@ namespace Garage
             Console.WriteLine("Enter youre register number");
             var RegisterNumber = Console.ReadLine();
             handler.UnParkVehicle(RegisterNumber);
+            Console.WriteLine("You're Vehicle has now been unparked.");
         }
 
         private void ParkVehicle()
@@ -99,8 +100,6 @@ namespace Garage
                     break;
                 default:
                     break;
-                    
-
             }
         }
 
