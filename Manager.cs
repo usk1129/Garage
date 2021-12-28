@@ -44,7 +44,7 @@ namespace Garage
                     handler.PrintVehicles();
                     break;
                 case "4":
-                //    UnParkVehicle();
+                    UnParkVehicle();
                     break;
                 case "0":
                     ShutDown();
@@ -55,7 +55,12 @@ namespace Garage
             }
         }
 
- 
+        private void UnParkVehicle()
+        {
+            Console.WriteLine("Enter youre register number");
+            var RegisterNumber = Console.ReadLine();
+            handler.UnParkVehicle(RegisterNumber);
+        }
 
         private void ParkVehicle()
         {
