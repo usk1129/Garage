@@ -31,7 +31,7 @@ namespace Garage
         }
         public void UserInput()
         {
-            var input = Console.ReadLine();
+            var input = ui.AskForStrInput("Enter your choice: ");
 
             switch (input)
             {
@@ -41,7 +41,7 @@ namespace Garage
                 case "2":
                     if (handler.IsFull())
                     {
-                        Console.WriteLine("The garage is full");
+                        ui.PrintString("The garage is full");
                         break;
                     }
                     try
@@ -50,7 +50,7 @@ namespace Garage
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.ToString());
+                        ui.PrintString(ex.ToString());
                     }
                     break;
                 case "3":
@@ -63,24 +63,22 @@ namespace Garage
                     ShutDown();
                     break;
                 default:
-                    Console.WriteLine("Wrong input");
+                    ui.PrintString("Wrong input");
                     break;
             }
         }
 
         private void UnParkVehicle()
         {
-            Console.WriteLine("Enter youre register number");
-            var RegisterNumber = Console.ReadLine();
+            var RegisterNumber = ui.AskForStrInput("Enter your choice: ");
             handler.UnParkVehicle(RegisterNumber);
-            Console.WriteLine("You're Vehicle has now been unparked.");
+            ui.PrintString("You're Vehicle has now been unparked.");
         }
 
         private void ParkVehicle()
         {
-            Console.WriteLine("What kind of vehicle do you have?");
             ui.VehicleType();
-            var VehicleInput = Console.ReadLine();
+            var VehicleInput = ui.AskForStrInput("What kind of vehicle do you have?");
             switch (VehicleInput)
             {
                 case "1":
@@ -105,90 +103,71 @@ namespace Garage
 
         private void Boat()
         {
-            Console.WriteLine("Enter the register number: ");
-            var RegNumber = Console.ReadLine();
-            Console.WriteLine("What is the color?");
-            var Color = Console.ReadLine();
-            Console.WriteLine("Enter the Number of Wheels: ");
-            var NumOFWheels = Console.ReadLine();
-            Console.WriteLine("Enter the  Length");
-            var ExtProperty = Console.ReadLine();
+            ui.PrintString("Enter the register number: ");
+            var RegNumber = ui.AskForStrInput("Enter the register number: ");
+            var Color = ui.AskForStrInput("What is the color?");
+            var NumOFWheels = ui.AskForStrInput("Enter the Number of Wheels: ");
+            var ExtProperty = ui.AskForStrInput("Enter the  Length");
             Boat car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
             handler.ParkVehicle(car_vehicle);
-            Console.WriteLine("The vehicle has now been parked in the garage");
+            ui.PrintString("The vehicle has now been parked in the garage");
         }
 
         private void Bus()
         {
-            Console.WriteLine("Enter the register number: ");
-            var RegNumber = Console.ReadLine();
-            Console.WriteLine("What is the color?");
-            var Color = Console.ReadLine();
-            Console.WriteLine("Enter the Number of Wheels: ");
-            var NumOFWheels = Console.ReadLine();
-            Console.WriteLine("Enter the number of seats");
-            var ExtProperty = Console.ReadLine();
+            var RegNumber = ui.AskForStrInput("Enter the register number: ");
+            var Color = ui.AskForStrInput("What is the color?");
+            var NumOFWheels = ui.AskForStrInput("Enter the Number of Wheels: ");
+            var ExtProperty = ui.AskForStrInput("Enter the number of seats");
             Bus car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
             handler.ParkVehicle(car_vehicle);
-            Console.WriteLine("The vehicle has now been parked in the garage");
+            ui.PrintString("The vehicle has now been parked in the garage");
         }
 
         private void Motorcycle()
         {
-            Console.WriteLine("Enter the register number: ");
-            var RegNumber = Console.ReadLine();
-            Console.WriteLine("What is the color?");
-            var Color = Console.ReadLine();
-            Console.WriteLine("Enter the Number of Wheels: ");
-            var NumOFWheels = Console.ReadLine();
-            Console.WriteLine("Enter the CylinderVolume");
-            var ExtProperty = Console.ReadLine();
+            var RegNumber = ui.AskForStrInput("Enter the register number: ");
+            var Color = ui.AskForStrInput("What is the color?");
+            var NumOFWheels = ui.AskForStrInput("Enter the Number of Wheels: ");
+            var ExtProperty = ui.AskForStrInput("Enter the CylinderVolume");
             Motorcycle car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
             handler.ParkVehicle(car_vehicle);
-            Console.WriteLine("The vehicle has now been parked in the garage");
+            ui.PrintString("The vehicle has now been parked in the garage");
         }
 
         private void AirPlane()
         {
-            Console.WriteLine("Enter the register number: ");
-            var RegNumber = Console.ReadLine();
-            Console.WriteLine("What is the color?");
-            var Color = Console.ReadLine();
-            Console.WriteLine("Enter the Number of Wheels: ");
-            var NumOFWheels = Console.ReadLine();
-            Console.WriteLine("Enter the NumberOfEngines: ");
-            var ExtProperty = Console.ReadLine();
+
+            var RegNumber = ui.AskForStrInput("Enter the register number: ");
+            var Color = ui.AskForStrInput("What is the color?");
+            var NumOFWheels = ui.AskForStrInput("Enter the Number of Wheels: ");
+            var ExtProperty = ui.AskForStrInput("Enter the NumberOfEngines: ");
             AirPlane car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
             handler.ParkVehicle(car_vehicle);
-            Console.WriteLine("The vehicle has now been parked in the garage");
+            ui.PrintString("The vehicle has now been parked in the garage");
         }
 
         private void CarPark()
         {
-            Console.WriteLine("Enter the register number: ");
-            var RegNumber = Console.ReadLine();
-            Console.WriteLine("What is the color?");
-            var Color = Console.ReadLine();
-            Console.WriteLine("Enter the Number of Wheels: ");
-            var NumOFWheels = Console.ReadLine();
-            Console.WriteLine("Enter the fueltype");
-            var ExtProperty = Console.ReadLine();
+            var RegNumber = ui.AskForStrInput("Enter the register number: ");
+            var Color = ui.AskForStrInput("What is the color?");
+            var NumOFWheels = ui.AskForStrInput("Enter the Number of Wheels: ");
+            var ExtProperty = ui.AskForStrInput("Enter the fueltype");
             Car car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), ExtProperty);
             handler.ParkVehicle(car_vehicle);
-            Console.WriteLine("The vehicle has now been parked in the garage");
+            ui.PrintString("The vehicle has now been parked in the garage");
         }
 
         private void CreateGarage()
         {
-            Console.WriteLine("Enter the size of garage: ");
-            var input_Capacity = Console.ReadLine();
+            var input_Capacity = ui.AskForStrInput("Enter the size of garage: ");
             handler.Run(Int32.Parse(input_Capacity));
-            Console.WriteLine($"Your garage has been created with {input_Capacity} slots");
+            ui.PrintString($"Your garage has been created with {input_Capacity} slots");
         }
 
         private void ShutDown()
         {
-            Console.WriteLine("Garage is shutting down! Bye bye!");
+            ui.PrintString("Garage is shutting down! Bye bye!");
             Environment.Exit(0);
         }
     }

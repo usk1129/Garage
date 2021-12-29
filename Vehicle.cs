@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Garage
 {
-    public abstract class Vehicle
+    public abstract class Vehicle: IVehicle
     {
         public string RegisterNumber { get; set; }
         public string Color { get; set; }
