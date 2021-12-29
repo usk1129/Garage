@@ -28,17 +28,20 @@ namespace Garage
             }
         }
 
-        public bool RemoveVehicle(String RegNo)
+        public bool RemoveVehicle(string RegNo)
         {
             bool RemovedFromSlot = false;
      
             for(int i = 0; i < Vehicles.Length; i++)
             {
-                if (Vehicles[i].RegisterNumber == RegNo)
+                if(Vehicles[i] != null)
                 {
-                    Vehicles[i] = null;
-                    RemovedFromSlot = true;
-                    break;
+                    if (Vehicles[i].RegisterNumber == RegNo)
+                    {
+                        Vehicles[i] = null;
+                        RemovedFromSlot = true;
+                        break;
+                    }
                 }
             }
 
@@ -50,13 +53,15 @@ namespace Garage
             bool Found = false;
             for(int i = 0; i < Vehicles.Length; i++)
             {
-                if (Vehicles[i].RegisterNumber == RegNo)
+                if(Vehicles[i] != null)
                 {
-                    Console.WriteLine(Vehicles[i].Stats()); 
-                    Found = true;
-                    break;
+                    if (Vehicles[i].RegisterNumber == RegNo)
+                    {
+                        Console.WriteLine(Vehicles[i].Stats());
+                        Found = true;
+                        break;
+                    }
                 }
-
             }
             return Found;
         }

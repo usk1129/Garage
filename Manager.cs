@@ -71,17 +71,32 @@ namespace Garage
             }
         }
 
-        private void FindVehicle()
+        private bool FindVehicle()
         {
             var RegNumber = ui.AskForStrInput("Enter the register number");
-            handler.FindVehicle(RegNumber);
+            if (handler.FindVehicle(RegNumber))
+            {
+                return true;
+            }
+            else
+            {
+                ui.PrintString("The vehicle not found");
+                return false;
+            }
         }
 
         private void UnParkVehicle()
         {
             var RegisterNumber = ui.AskForStrInput("Enter the register number: ");
-            handler.UnParkVehicle(RegisterNumber);
-            ui.PrintString("You're Vehicle has now been unparked.");
+            if (handler.UnParkVehicle(RegisterNumber))
+            {
+                ui.PrintString("You're Vehicle has now been unparked.");
+            }
+            else
+            {
+                ui.PrintString("The Vehicle not found");
+            }
+            
         }
 
         private void ParkVehicle()
