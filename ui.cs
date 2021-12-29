@@ -18,8 +18,9 @@ namespace Garage
             PrintString("Press 2: Park a new vehicle");
             PrintString("Press 3: Show all parked vehicles");
             PrintString("Press 4: Unpark a vehicle by RegisterNumber");
-            PrintString("Press 5: Show how many of each type of vehicle is parked in the garage");
-            PrintString("Press 6: Search for vehicle by license plate");
+            PrintString("Press 5: Find a vehicle by RegisterNumber");
+            PrintString("Press 6: Show how many of each type of vehicle is parked in the garage");
+            PrintString("Press 7: Search for vehicle by license plate");
             PrintString("Press 0: Exit the garage\n");
          
 
@@ -66,10 +67,11 @@ namespace Garage
 
         public int AskForIntInput(string prompt)
         {
+
             do
             {
                 string input = AskForStrInput(prompt);
-                if (int.TryParse(input, out int answer)) return answer;
+                if (int.TryParse(input, out int answer)) return answer; Console.WriteLine("You must enter a number");
 
             } while (true);
         }

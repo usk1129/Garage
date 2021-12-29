@@ -25,6 +25,12 @@ namespace Garage
         {
             return garage.RemoveVehicle(RegNo);
         }
+
+        public bool FindVehicle(string RegNo)
+        {
+            return garage.FindVehicle(RegNo);
+        }
+
         public void PrintVehicles()
         {
            
@@ -36,13 +42,13 @@ namespace Garage
 
         public void Seeddata()
         {
-            //Vehicle airplay = new AirPlane("1111", "yellow", 11, 11);
-            //Vehicle test_car = new Car("222", "black", 4, "diesel");
-            //Vehicle test_car2 = new Car("2224", "blacssk", 1, "bensinl");
-            //garage.AddVehicle(airplay);
-            //garage.AddVehicle(test_car);
-            //garage.AddVehicle(test_car2);
-            //garage.RemoveVehicle(test_car.RegisterNumber);
+            Vehicle airplay = new AirPlane("1111", "yellow", 11, 11);
+            Vehicle test_car = new Car("222", "black", 4, "diesel");
+            Vehicle test_car2 = new Car("2224", "blacssk", 1, "bensinl");
+            garage.AddVehicle(airplay);
+            garage.AddVehicle(test_car);
+            garage.AddVehicle(test_car2);
+            garage.RemoveVehicle(test_car.RegisterNumber);
         }
 
 

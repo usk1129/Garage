@@ -45,6 +45,22 @@ namespace Garage
             return RemovedFromSlot;
         }
 
+        public bool FindVehicle(string RegNo)
+        {
+            bool Found = false;
+            for(int i = 0; i < Vehicles.Length; i++)
+            {
+                if (Vehicles[i].RegisterNumber == RegNo)
+                {
+                    Console.WriteLine(Vehicles[i].Stats()); 
+                    Found = true;
+                    break;
+                }
+
+            }
+            return Found;
+        }
+
         public bool AddVehicle(T item)
         
         {

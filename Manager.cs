@@ -59,6 +59,9 @@ namespace Garage
                 case "4":
                     UnParkVehicle();
                     break;
+                case "5":
+                    FindVehicle();
+                    break;
                 case "0":
                     ShutDown();
                     break;
@@ -68,9 +71,15 @@ namespace Garage
             }
         }
 
+        private void FindVehicle()
+        {
+            var RegNumber = ui.AskForStrInput("Enter the register number");
+            handler.FindVehicle(RegNumber);
+        }
+
         private void UnParkVehicle()
         {
-            var RegisterNumber = ui.AskForStrInput("Enter your choice: ");
+            var RegisterNumber = ui.AskForStrInput("Enter the register number: ");
             handler.UnParkVehicle(RegisterNumber);
             ui.PrintString("You're Vehicle has now been unparked.");
         }
@@ -103,12 +112,11 @@ namespace Garage
 
         private void Boat()
         {
-            ui.PrintString("Enter the register number: ");
             var RegNumber = ui.AskForStrInput("Enter the register number: ");
             var Color = ui.AskForStrInput("What is the color?");
-            var NumOFWheels = ui.AskForStrInput("Enter the Number of Wheels: ");
+            var NumOFWheels = ui.AskForIntInput("Enter the Number of Wheels: ");
             var ExtProperty = ui.AskForStrInput("Enter the  Length");
-            Boat car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
+            Boat car_vehicle = new(RegNumber, Color, NumOFWheels, Int32.Parse(ExtProperty));
             handler.ParkVehicle(car_vehicle);
             ui.PrintString("The vehicle has now been parked in the garage");
         }
@@ -117,9 +125,9 @@ namespace Garage
         {
             var RegNumber = ui.AskForStrInput("Enter the register number: ");
             var Color = ui.AskForStrInput("What is the color?");
-            var NumOFWheels = ui.AskForStrInput("Enter the Number of Wheels: ");
+            var NumOFWheels = ui.AskForIntInput("Enter the Number of Wheels: ");
             var ExtProperty = ui.AskForStrInput("Enter the number of seats");
-            Bus car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
+            Bus car_vehicle = new(RegNumber, Color, NumOFWheels, Int32.Parse(ExtProperty));
             handler.ParkVehicle(car_vehicle);
             ui.PrintString("The vehicle has now been parked in the garage");
         }
@@ -128,9 +136,9 @@ namespace Garage
         {
             var RegNumber = ui.AskForStrInput("Enter the register number: ");
             var Color = ui.AskForStrInput("What is the color?");
-            var NumOFWheels = ui.AskForStrInput("Enter the Number of Wheels: ");
+            var NumOFWheels = ui.AskForIntInput("Enter the Number of Wheels: ");
             var ExtProperty = ui.AskForStrInput("Enter the CylinderVolume");
-            Motorcycle car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
+            Motorcycle car_vehicle = new(RegNumber, Color, NumOFWheels, Int32.Parse(ExtProperty));
             handler.ParkVehicle(car_vehicle);
             ui.PrintString("The vehicle has now been parked in the garage");
         }
@@ -140,9 +148,9 @@ namespace Garage
 
             var RegNumber = ui.AskForStrInput("Enter the register number: ");
             var Color = ui.AskForStrInput("What is the color?");
-            var NumOFWheels = ui.AskForStrInput("Enter the Number of Wheels: ");
+            var NumOFWheels = ui.AskForIntInput("Enter the Number of Wheels: ");
             var ExtProperty = ui.AskForStrInput("Enter the NumberOfEngines: ");
-            AirPlane car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), Int32.Parse(ExtProperty));
+            AirPlane car_vehicle = new(RegNumber, Color, NumOFWheels, Int32.Parse(ExtProperty));
             handler.ParkVehicle(car_vehicle);
             ui.PrintString("The vehicle has now been parked in the garage");
         }
@@ -151,17 +159,17 @@ namespace Garage
         {
             var RegNumber = ui.AskForStrInput("Enter the register number: ");
             var Color = ui.AskForStrInput("What is the color?");
-            var NumOFWheels = ui.AskForStrInput("Enter the Number of Wheels: ");
+            var NumOFWheels = ui.AskForIntInput("Enter the Number of Wheels: ");
             var ExtProperty = ui.AskForStrInput("Enter the fueltype");
-            Car car_vehicle = new(RegNumber, Color, Int32.Parse(NumOFWheels), ExtProperty);
+            Car car_vehicle = new(RegNumber, Color, NumOFWheels, ExtProperty);
             handler.ParkVehicle(car_vehicle);
             ui.PrintString("The vehicle has now been parked in the garage");
         }
 
         private void CreateGarage()
         {
-            var input_Capacity = ui.AskForStrInput("Enter the size of garage: ");
-            handler.Run(Int32.Parse(input_Capacity));
+            var input_Capacity = ui.AskForIntInput("Enter the size of garage: ");
+            handler.Run(input_Capacity);
             ui.PrintString($"Your garage has been created with {input_Capacity} slots");
         }
 
