@@ -62,6 +62,12 @@ namespace Garage
                 case "5":
                     FindVehicle();
                     break;
+                case "6":
+                    handler.PrintVehiclesObj();
+                    break;
+                case "7":
+                    handler.Seeddata();
+                    break;
                 case "0":
                     ShutDown();
                     break;

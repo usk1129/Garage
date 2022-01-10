@@ -51,6 +51,44 @@ namespace Garage
             garage.RemoveVehicle(test_car.RegisterNumber);
         }
 
+        public void PrintVehiclesObj()
+        {
+            var nrofCar = 0;
+            var nrofAirPlane = 0;
+            var nrofMotorCycle = 0;
+            var nrofBus = 0;
+            var nrofBoat = 0;
+            foreach (var v in garage)
+            {
+                if(v.GetType().Name == "Car")
+                {
+                    nrofCar++;
+                }
+                if (v.GetType().Name == "AirPlane")
+                {
+                    nrofAirPlane++;
+                }
+                if (v.GetType().Name == "Motorcycle")
+                {
+                    nrofMotorCycle++;
+                }
+                if (v.GetType().Name == "Bus")
+                {
+                    nrofBus++;
+                }
+                if (v.GetType().Name == "Boat")
+                {
+                    nrofBoat++;
+                }
+            }
+
+            Console.WriteLine("Total amount of parked car is " + nrofCar);
+            Console.WriteLine("Total amount of parked AirPlane is " + nrofAirPlane);
+            Console.WriteLine("Total amount of parked Motorcycle is " + nrofMotorCycle);
+            Console.WriteLine("Total amount of parked Bus is " + nrofBus);
+            Console.WriteLine("Total amount of parked Boat is " + nrofBoat);
+        }
+
 
     }
 }
